@@ -23,7 +23,7 @@ git clone https://github.com/yevhenii-nevmyvako/eos_app
 python module.py "/path/to/output/file.csv" "[[1, 2], [3, 4]]"
 python module.py "/path/to/output/file.json" "[[1, 2], [3, 4]]"
 ```
-* Run test:
+* Run tests:
 ```bash
 python -m unittest tests/test_eos_app.py
 ```
