@@ -17,11 +17,15 @@ git clone https://github.com/yevhenii-nevmyvako/eos_app
 
 ### How to run
 - Clone github repo to your directory
-- Go to the project directory
+- Go to the project BASE directory
 - Run example:
 ```bash
 python module.py "/path/to/output/file.csv" "[[1, 2], [3, 4]]"
 python module.py "/path/to/output/file.json" "[[1, 2], [3, 4]]"
+```
+* Run help by command line to show doc:
+```bash
+python module.py --help
 ```
 * Run tests:
 ```bash
