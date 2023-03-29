@@ -4,10 +4,10 @@ class OutputFileExistsError(Exception):
 
 
 class FileExtensionError(Exception):
-    """should rise exception if format file is not `.JSON`."""
+    """should raise exception if format file is not `.JSON`."""
     pass
 
 
 class NotTwoDimensionalArrayError(Exception):
-    """Should rise exception if the entered array is not two-dimensional"""
+    """Should raise exception if the entered array is not two-dimensional"""
     pass
