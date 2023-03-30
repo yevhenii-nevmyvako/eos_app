@@ -65,8 +65,8 @@ class TestFileIO(unittest.TestCase):
     def test_main_file_exists(self):
         """Should check and raise exception if file exist"""
 
-        with open(self.path_csv, "w") as f:
-            f.write("")
+        with open(self.path_csv, "w") as file:
+            file.write("")
         with patch("argparse.ArgumentParser.parse_args",
                    return_value=argparse.Namespace(
                        path=self.path_csv, data="[[1,2],[3,4]]")
