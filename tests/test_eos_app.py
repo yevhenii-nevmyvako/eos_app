@@ -33,7 +33,7 @@ class TestFileIO(unittest.TestCase):
             os.remove(self.path_json)
 
     def test_save_to_csv(self) -> None:
-        """Should check, create and save data by path to file.csv format"""
+        """Should check, create and save data by path to `.csv` format"""
 
         save_to_csv(self.path_csv, self.data)
         with open(self.path_csv) as csv_file:
@@ -42,7 +42,7 @@ class TestFileIO(unittest.TestCase):
         self.assertEqual(content, expected_output)
 
     def test_save_to_json(self) -> None:
-        """Should check, create and save data by path to file.json format"""
+        """Should check, create and save data by path to `.json` format"""
 
         save_to_json(self.path_json, self.data)
         with open(self.path_json) as file:
