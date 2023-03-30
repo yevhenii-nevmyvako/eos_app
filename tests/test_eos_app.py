@@ -17,14 +17,14 @@ from module import (
 class TestFileIO(unittest.TestCase):
     """Test for input\output files with path and data """
 
-    def setUp(self):
+    def setUp(self) -> None:
         """SetUp with path & data to context managers"""
 
         self.path_csv = "test.csv"
         self.path_json = "test.json"
         self.data = [[1, 2], [3, 4]]
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         """Check and clear after test case end"""
 
         if os.path.exists(self.path_csv):
@@ -32,7 +32,7 @@ class TestFileIO(unittest.TestCase):
         if os.path.exists(self.path_json):
             os.remove(self.path_json)
 
-    def test_save_to_csv(self):
+    def test_save_to_csv(self) -> None:
         """Should check, create and save data by path to file.csv format"""
 
         save_to_csv(self.path_csv, self.data)
@@ -41,7 +41,7 @@ class TestFileIO(unittest.TestCase):
         expected_output = "1,2\n3,4\n"
         self.assertEqual(content, expected_output)
 
-    def test_save_to_json(self):
+    def test_save_to_json(self) -> None:
         """Should check, create and save data by path to file.json format"""
 
         save_to_json(self.path_json, self.data)
@@ -50,7 +50,7 @@ class TestFileIO(unittest.TestCase):
         expected_output = "[[1, 2], [3, 4]]"
         self.assertEqual(content, expected_output)
 
-    def test_main_json(self):
+    def test_main_json(self) -> None:
         """Should check and create json file by Cli interface"""
 
         with patch("argparse.ArgumentParser.parse_args",
@@ -62,7 +62,7 @@ class TestFileIO(unittest.TestCase):
         expected_output = f"Create new file: {self.path_json}\n"
         self.assertEqual(out.getvalue(), expected_output)
 
-    def test_main_file_exists(self):
+    def test_main_file_exists(self) -> None:
         """Should check and raise exception if file exist"""
 
         with open(self.path_csv, "w") as file:
@@ -74,7 +74,7 @@ class TestFileIO(unittest.TestCase):
             with self.assertRaises(OutputFileExistsError):
                 main()
 
-    def test_main_file_extension_error(self):
+    def test_main_file_extension_error(self) -> None:
         """Should check `.scv & .json` file format"""
 
         with patch("argparse.ArgumentParser.parse_args",
@@ -84,7 +84,7 @@ class TestFileIO(unittest.TestCase):
             with self.assertRaises(FileExtensionError):
                 main()
 
-    def test_main_not_two_dimensional_array_error(self):
+    def test_main_not_two_dimensional_array_error(self) -> None:
         """Should check and rise exception if
          data not in two-dimensional list"""
 
