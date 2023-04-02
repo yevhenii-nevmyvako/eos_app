@@ -50,15 +50,6 @@ def main() -> None:
 
     data = json.loads(args.data)
 
-    if args.path.endswith(".csv"):
-        """Check validation file is in `.csv` format"""
-        save_to_csv(args.path, data)
-    elif args.path.endswith(".json"):
-        """Check validation file is in .json` format"""
-        save_to_json(args.path, data)
-    else:
-        raise FileExtensionError("File must be only in `.JSON or .CSV` format")
-
     if not isinstance(data, list) or not all(
             isinstance(row, list) for row in data
     ):
@@ -68,7 +59,15 @@ def main() -> None:
             "The data should be a two-dimensional list of integers"
         )
 
-    save_to_json(args.path, data)
+    if args.path.endswith(".csv"):
+        """Check validation file is in `.csv` format"""
+        save_to_csv(args.path, data)
+    elif args.path.endswith(".json"):
+        """Check validation file is in .json` format"""
+        save_to_json(args.path, data)
+    else:
+        raise FileExtensionError("File must be only in `.JSON or .CSV` format")
+
     print(f"Create new file: {args.path}")
 
 
